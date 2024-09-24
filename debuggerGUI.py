@@ -1,5 +1,4 @@
 import paho.mqtt.client as mqtt
-import json
 import time
 import tkinter as tk
 from tkinter import messagebox, scrolledtext
@@ -197,7 +196,7 @@ class DebuggerApp:
             return
 
         try:
-            self.client.publish(topic, json.dumps({"content": message}))
+            self.client.publish(topic, message)
             self.update_text_area(f"Published to {topic}: {message}\n")
             #messagebox.showinfo("Published", f"Message published to {topic}")
         except Exception as e:
